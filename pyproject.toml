@@ -1,0 +1,70 @@
+[build-system]
+requires = ["maturin>=0.14,<0.15"]
+build-backend = "maturin"
+
+[project]
+name = "alphabet_mask"
+authors = [
+    {name = "Denny Wong Pui-chung", email = "denwong47@hotmail.com"},
+]
+version = "0.1.0"
+description = "Create alphabet masks from strings."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies= [
+    "pytz",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ipdb",
+    "ipython",
+    "isort",
+    "pre-commit",
+    "pydata-sphinx-theme",
+    "pytest",
+    "sphinx~=5.3.0",
+    "maturin",
+]
+
+[project.urls]
+repository = "https://github.com/denwong47/alphabet_mask"
+
+[tool.setuptools.packages.find]
+where = ["src/py", "bin", "data"]
+namespaces = true
+
+[tool.setuptools.package-data]
+lib_alphabet_mask = ["*"]
+
+[tool.maturin]
+python-source = "src/py"
+
+[tool.isort]
+py_version = 39
+profile = "black"
+sections=[
+    "FUTURE",
+    "STDLIB",
+    "THIRDPARTY",
+    "FIRSTPARTY",
+    "FORESTREET",
+    "LOCALFOLDER",
+]
+known_third_party = [
+    "numpy",
+]
+
+[tool.pyright]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "local: marks tests as only intended to be run locally as opposed to e.g. on GitHub actions",
+]

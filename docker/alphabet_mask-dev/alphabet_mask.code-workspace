@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "path": "alphabet_mask"
+        }
+    ],
+    "settings": {
+        "editor.rulers": [
+            88, 120,
+        ]
+    }
+}
